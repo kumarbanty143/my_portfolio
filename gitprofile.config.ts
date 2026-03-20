@@ -12,7 +12,7 @@ const CONFIG = {
   base: '/',
   projects: {
     github: {
-      display: true, // Display GitHub projects?
+      display: false, // Display GitHub projects?
       header: 'Github Projects',
       mode: 'automatic', // Mode can be: 'automatic' or 'manual'
       automatic: {
@@ -31,20 +31,12 @@ const CONFIG = {
     external: {
       header: 'My Projects',
       // To hide the `External Projects` section, keep it empty.
-      projects: [
-        {
-          title: 'Scalable E-Commerce Microservices (Backend Project)',
-          description:
-            'Built a distributed e-commerce backend with Spring Boot 3, splitting functionality into User, Order, Product, Inventory, Payment, and Notification services for better scalability. Implemented Async Messaging via Kafka, centralized API Gateway, JWT auth, and Distributed Tracing. Built reliable payments using Razorpay and the Saga Pattern for distributed transactions.',
-          imageUrl: '',
-          link: 'https://github.com/kumarbanty143/nexus-cloud-commerce',
-        },
-      ],
+      projects: [],
     },
   },
   seo: {
     title: 'Portfolio of Himanshu Kumar Patra',
-    description: 'Full Stack Developer with 1.2+ years of experience',
+    description: 'Full Stack Developer with 1.3+ years of experience',
     imageURL: '',
   },
   social: {
@@ -78,24 +70,32 @@ const CONFIG = {
     'Tailwind CSS',
     'HTML5',
     'CSS3',
-    'JavaScript',
+    'JavaScript (ES6+)',
     'TypeScript',
     'Node.js',
     'Express.js',
     'REST APIs',
-    'JWT',
+    'JWT Authentication',
     'Microservices',
     'WebSocket',
+    'Event-Driven Architecture',
     'MySQL',
     'MongoDB',
     'Redis',
     'AWS (EC2, S3)',
     'Docker',
     'PM2',
+    'GitHub Actions',
     'Java',
     'Spring Boot',
     'SQL',
     'Git',
+    'Postman',
+    'JIRA',
+    'Data Structures & Algorithms',
+    'System Design',
+    'Database Indexing',
+    'Caching',
   ],
   experiences: [
     {
@@ -103,19 +103,40 @@ const CONFIG = {
       position: 'Full Stack Developer',
       from: 'Jan 2025',
       to: 'Present',
-      companyLink: '',
+      companyLink: 'https://vedak.com',
+      description: '• Contributed to production microservices systems, building backend services with Node.js and SQL.\n• Built a web application from scratch for 1000+ users using React.js, Node.js, and SQL based on business requirements\n• Developed secure REST APIs and improved communication between services.\n• Developed an automated End of Day (EOD) reporting system, reducing manual reporting effort by 80%.\n• Integrated OpenAI-based transcription and AWS S3 storage to automate audio-to-text workflows.\n• Optimized SQL queries and using indexing to improve report generation performance by 60%.\n• Worked with AWS EC2 for application deployment and used PM2 for process management.',
+    },
+    {
+      company: 'Zigbee Student Developers’ Club (OUTR)',
+      position: 'Full Stack Developer (Volunteer)',
+      from: 'June 2024',
+      to: 'Nov 2024',
+      companyLink: 'https://zigbeeoutr.in',
+      description: '• Developed the alumni portal (zigbeeoutr.in) using React.js, TypeScript, and Node.js.\n• Built a searchable alumni directory enabling students to connect with 1000+ alumni.\n• Implemented authentication and optimized backend APIs for improved performance and scalability.\n• Collaborated with team to design and deploy features.',
     },
   ],
   certifications: [
     {
       name: 'CodeChef 4* Competitive Programmer',
-      body: '4* Competitive Programmer with strong problem-solving skills in C++ and Java.',
+      body: '4* Competitive Programmer with strong problem-solving skills in Data Structures and Algorithms (C++/Java).',
       year: '',
       link: 'https://www.codechef.com/users/banty_dev_29',
     },
     {
+      name: 'OJEE (MCA) Rank 34',
+      body: 'Secured All Odisha Rank 34 in OJEE (MCA).',
+      year: '',
+      link: '',
+    },
+    {
+      name: 'AIR 147 in Coding World Cup',
+      body: 'Secured AIR 147 in Coding World Cup.',
+      year: '',
+      link: '',
+    },
+    {
       name: 'Alumni Coordinator at OUTR',
-      body: 'Leading mentorship initiatives for 200+ alumni.',
+      body: 'Lead mentorship initiatives for 200+ students.',
       year: '',
       link: '',
     },
@@ -123,13 +144,13 @@ const CONFIG = {
   educations: [
     {
       institution: 'Odisha University of Technology and Research',
-      degree: 'Master of Computer Applications (MCA)',
+      degree: 'Master of Computer Applications (MCA), CGPA: 8.9',
       from: '2023',
       to: '2025',
     },
     {
       institution: 'Fakir Mohan University',
-      degree: 'Bachelor of Science in Mathematics',
+      degree: 'Bachelor of Science in Mathematics, CGPA: 7.9',
       from: '2020',
       to: '2023',
     },
