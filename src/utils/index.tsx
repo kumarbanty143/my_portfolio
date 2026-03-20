@@ -1,6 +1,6 @@
 import React from 'react';
 import { hotjar } from 'react-hotjar';
-import { LOCAL_STORAGE_KEY_NAME } from '../constants';
+
 
 import { DEFAULT_THEMES } from '../constants/default-themes';
 import colors from '../data/colors.json';
@@ -10,11 +10,7 @@ import {
   SanitizedThemeConfig,
 } from '../interfaces/sanitized-config';
 
-export const isDarkishTheme = (appliedTheme: string): boolean => {
-  return ['dark', 'halloween', 'forest', 'black', 'luxury', 'dracula'].includes(
-    appliedTheme,
-  );
-};
+
 
 type EventParams = {
   [key: string]: string;
@@ -139,16 +135,7 @@ export const getInitialTheme = (themeConfig: SanitizedThemeConfig): string => {
     return themeConfig.defaultTheme;
   }
 
-  if (
-    typeof window !== 'undefined' &&
-    localStorage.getItem(LOCAL_STORAGE_KEY_NAME) !== null
-  ) {
-    const savedTheme = localStorage.getItem(LOCAL_STORAGE_KEY_NAME);
 
-    if (savedTheme && themeConfig.themes.includes(savedTheme)) {
-      return savedTheme;
-    }
-  }
 
   if (themeConfig.respectPrefersColorScheme && !themeConfig.disableSwitch) {
     return typeof window !== 'undefined' &&

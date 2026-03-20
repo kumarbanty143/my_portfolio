@@ -55,4 +55,7 @@ export default defineConfig({
   define: {
     CONFIG: CONFIG,
   },
+  server: {
+    port: 5143,
+  },
 });
