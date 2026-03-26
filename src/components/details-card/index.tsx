@@ -21,7 +21,7 @@ import {
 import { FaSquareThreads } from 'react-icons/fa6';
 import { MdLocationOn } from 'react-icons/md';
 import { RiDiscordFill, RiMailFill, RiPhoneFill } from 'react-icons/ri';
-import { SiResearchgate, SiX, SiUdemy } from 'react-icons/si';
+import { SiResearchgate, SiX, SiUdemy, SiLeetcode, SiCodechef } from 'react-icons/si';
 import { Profile } from '../../interfaces/profile';
 import {
   SanitizedGithub,
@@ -231,6 +231,22 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                   title="LinkedIn:"
                   value={social.linkedin}
                   link={`https://www.linkedin.com/in/${social.linkedin}`}
+                />
+              )}
+              {social?.leetcode && (
+                <ListItem
+                  icon={<SiLeetcode />}
+                  title="LeetCode:"
+                  value={social.leetcode}
+                  link={`https://leetcode.com/u/${social.leetcode}`}
+                />
+              )}
+              {social?.codechef && (
+                <ListItem
+                  icon={<SiCodechef />}
+                  title="CodeChef:"
+                  value={social.codechef}
+                  link={`https://www.codechef.com/users/${social.codechef}`}
                 />
               )}
               {social?.dribbble && (

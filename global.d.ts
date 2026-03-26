@@ -206,6 +206,17 @@ interface Social {
    * Discord username
    */
   discord?: string;
+  leetcode?: string;
+  codechef?: string;
+}
+
+interface Contact {
+  email: string;
+  emailJS?: {
+    serviceId: string;
+    templateId: string;
+    publicKey: string;
+  };
 }
 
 interface Resume {
@@ -329,6 +340,11 @@ interface Config {
   projects?: Projects;
 
   /**
+   * Intro summary
+   */
+  intro?: string;
+
+  /**
    * SEO config
    */
   seo?: SEO;
@@ -394,9 +410,14 @@ interface Config {
   footer?: string;
 
   /**
+   * Contact config
+   */
+  contact?: Contact;
+
+  /**
    * Enable PWA
    */
-  enablePWA?: boolean;
+  enablePWA: boolean;
 }
 
 declare const CONFIG: Config;

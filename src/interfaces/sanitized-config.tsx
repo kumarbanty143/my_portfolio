@@ -63,10 +63,21 @@ export interface SanitizedSocial {
   phone?: string;
   email?: string;
   discord?: string;
+  leetcode?: string;
+  codechef?: string;
 }
 
 export interface SanitizedResume {
   fileUrl?: string;
+}
+
+export interface SanitizedContact {
+  email: string;
+  emailJS?: {
+    serviceId: string;
+    templateId: string;
+    publicKey: string;
+  };
 }
 
 export interface SanitizedExperience {
@@ -130,6 +141,7 @@ export interface SanitizedConfig {
   projects: SanitizedProjects;
   seo: SanitizedSEO;
   social: SanitizedSocial;
+  contact: SanitizedContact;
   resume: SanitizedResume;
   skills: Array<string>;
   experiences: Array<SanitizedExperience>;
@@ -142,4 +154,5 @@ export interface SanitizedConfig {
   themeConfig: SanitizedThemeConfig;
   footer?: string;
   enablePWA: boolean;
+  intro?: string;
 }

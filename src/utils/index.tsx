@@ -78,6 +78,22 @@ export const getSanitizedConfig = (
         telegram: config?.social?.telegram,
         researchGate: config?.social?.researchGate,
         discord: config?.social?.discord,
+        leetcode: config?.social?.leetcode,
+        codechef: config?.social?.codechef,
+      },
+      contact: {
+        email: config?.contact?.email || '',
+        emailJS:
+          config?.contact?.emailJS &&
+          config.contact.emailJS.serviceId &&
+          config.contact.emailJS.templateId &&
+          config.contact.emailJS.publicKey
+            ? {
+                serviceId: config.contact.emailJS.serviceId,
+                templateId: config.contact.emailJS.templateId,
+                publicKey: config.contact.emailJS.publicKey,
+              }
+            : undefined,
       },
       resume: {
         fileUrl: config?.resume?.fileUrl || '',
@@ -124,6 +140,7 @@ export const getSanitizedConfig = (
       },
       footer: config?.footer,
       enablePWA: config?.enablePWA ?? true,
+      intro: config?.intro,
     };
   } catch (error) {
     return {};

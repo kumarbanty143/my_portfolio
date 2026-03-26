@@ -40,12 +40,14 @@ const CONFIG = {
     imageURL: '',
   },
   social: {
-    linkedin: 'himanshu-kumar-patra-958199275',
-    x: '',
+    linkedin: 'himanshu-kumar-patra-sde',
+    x: 'Himansh40017967',
+    leetcode: 'himanshukumar2910',
+    codechef: 'banty_dev_29',
     mastodon: '',
     researchGate: '',
     facebook: '',
-    instagram: '',
+    instagram: 'the_banty_cs',
     reddit: '',
     threads: '',
     youtube: '', // example: 'pewdiepie'
@@ -97,6 +99,7 @@ const CONFIG = {
     'Database Indexing',
     'Caching',
   ],
+  intro: 'Full Stack Developer with 1.3+ years of professional experience building scalable web applications using Node.js, React, and SQL. Experienced in microservices architecture, REST API development, and improving database performance.\n\nBuilt responsive frontend interfaces and improved performance by reducing bundle size. Currently learning Java and Spring Boot, along with Docker and MongoDB.',
   experiences: [
     {
       company: 'Vedak: Expert Network',
@@ -157,6 +160,14 @@ const CONFIG = {
   ],
   publications: [],
   // Display articles from your medium or dev account. (Optional)
+  contact: {
+    email: 'himanshukumarpatra.dev@gmail.com',
+    emailJS: {
+      serviceId: '', // To find this, visit https://www.emailjs.com/
+      templateId: '', // To find this, visit https://www.emailjs.com/
+      publicKey: '', // To find this, visit https://www.emailjs.com/
+    },
+  },
   blog: {
     source: '', // medium | dev
     username: '', // to hide blog section, keep it empty
@@ -176,11 +187,7 @@ const CONFIG = {
   },
 
   // Optional Footer. Supports plain text or HTML.
-  footer: `Made with <a 
-      class="text-primary" href="https://github.com/arifszn/gitprofile"
-      target="_blank"
-      rel="noreferrer"
-    >GitProfile</a> and ❤️`,
+  footer: `Made with ❤️ by <a class="text-primary" href="https://github.com/kumarbanty143" target="_blank" rel="noreferrer">Himanshu</a>`,
 
   enablePWA: true,
 };
