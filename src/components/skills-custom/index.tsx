@@ -28,9 +28,8 @@ const Skills = ({ skills: _skills }: { skills: string[] }) => {
 
   return (
     <div id="skills" className="bg-[var(--surface)]">
-      <div className="section-wrap px-[1.5rem] md:px-[3rem] py-[4rem] max-w-[1200px] mx-auto">
-        <div className="section-header flex items-center gap-[1rem] mb-[2.2rem]">
-          <span className="section-num font-[var(--mono)] text-[0.65rem] text-[var(--accent)] tracking-[0.1em]">02</span>
+      <div className="section-wrap px-[1.5rem] md:px-[3rem] py-[2.8rem] max-w-[1200px] mx-auto">
+        <div className="section-header flex items-center gap-[1rem] mb-[1.6rem]">
           <h2 className="section-title text-[clamp(1.6rem,3vw,2.4rem)] font-bold tracking-[-0.03em] leading-[1]">
             Technical <em className="font-[var(--serif)] italic">Skills</em>
           </h2>

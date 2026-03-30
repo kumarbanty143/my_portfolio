@@ -4,88 +4,95 @@ const Hero = ({ profile, intro, loading }: { profile: Profile | null, intro?: st
   if (loading || !profile) return null;
 
   return (
-    <section id="home" className="min-h-screen grid grid-cols-1 md:grid-cols-2 items-center px-[1.5rem] md:px-[3rem] py-[8rem] md:py-[8rem] relative overflow-hidden">
+    <section id="home" className="min-h-0 flex flex-col md:flex-row items-center justify-between px-[1.5rem] md:px-[4.5rem] py-[5rem] md:py-[6rem] relative overflow-hidden gap-[2.5rem] md:gap-[5rem]">
       <div className="hero-grid-bg"></div>
       <div className="hero-blob"></div>
 
-      <div className="hero-left z-[1]">
-        <div className="hero-tag flex items-center gap-[0.5rem] font-[var(--mono)] text-[0.75rem] text-[var(--accent)] tracking-[0.12em] uppercase mb-[1.5rem] px-[0.8rem] py-[0.4rem] border border-[rgba(232,255,107,0.3)] rounded-[2px] fade-up">
-          <span className="w-[6px] h-[6px] bg-[var(--accent)] rounded-full animate-blink"></span>
+      <div className="hero-left z-[1] flex-1 max-w-full">
+        <div className="hero-tag flex items-center gap-[0.5rem] font-[var(--mono)] text-[0.62rem] text-[var(--accent)] tracking-[0.12em] uppercase mb-[1.2rem] px-[0.7rem] py-[0.32rem] border border-[rgba(232,255,107,0.18)] rounded-[2px] fade-up w-fit">
+          <span className="w-[5px] h-[5px] bg-[var(--accent)] rounded-full animate-blink"></span>
           Available for opportunities
         </div>
-        <h1 className="text-[clamp(3.5rem,7vw,7rem)] font-extrabold leading-[0.95] tracking-[-0.03em] mb-[1rem] fade-up [animation-delay:0.1s]">
-          {profile.name.split(' ')[0]}<br/>
-          <span className="font-[var(--serif)] italic font-normal text-[var(--accent)]">
-            {profile.name.split(' ').slice(1).join(' ')}
-          </span>
+        
+        <h1 className="text-[clamp(1.8rem,4.5vw,3.8rem)] font-bold leading-[1.1] tracking-[-0.035em] mb-[1rem] fade-up [animation-delay:0.1s] whitespace-nowrap">
+          {profile.name.split(' ')[0]} <span className="font-[var(--serif)] italic font-normal text-[var(--accent)]">{profile.name.split(' ').slice(1).join(' ')}</span>
         </h1>
-        <p className="font-[var(--mono)] text-[1rem] text-[var(--muted)] mb-[2rem] fade-up [animation-delay:0.2s]">
-          Full Stack Developer · <em className="text-[var(--accent2)] not-italic">1.3+ Years Experience</em>
+
+        <p className="font-[var(--mono)] text-[0.82rem] md:text-[0.9rem] text-[var(--muted)] mb-[1.4rem] fade-up [animation-delay:0.15s] tracking-[0.02em]">
+          Full Stack Developer &nbsp;&middot;&nbsp; <em className="text-[var(--accent2)] not-italic font-medium">1.3+ Years Experience</em>
         </p>
-        <p className="text-[1rem] leading-[1.7] text-[#aaa] max-w-[500px] mb-[2.5rem] fade-up [animation-delay:0.3s] whitespace-pre-line">
-          {intro || profile.bio}
-        </p>
-        <div className="flex gap-[1rem] flex-wrap fade-up [animation-delay:0.4s]">
-          <a href="#contact" className="btn-custom-primary">Get in Touch →</a>
-          <a href="#experience" className="btn-custom-outline">View Work ↓</a>
+
+        <div className="hero-desc-wrap max-w-full md:max-w-[850px] fade-up [animation-delay:0.2s]">
+          <p className="text-[0.85rem] md:text-[0.95rem] leading-[1.7] text-[#aaa] mb-[1.6rem] whitespace-pre-line">
+            {intro || profile.bio}
+          </p>
+        </div>
+
+        <div className="flex gap-[0.8rem] flex-wrap fade-up [animation-delay:0.3s] mt-[0.85rem]">
+          <a href="#contact" className="btn-hero-primary">Get in Touch →</a>
+          <a href="#experience" className="btn-hero-outline">View Work ↓</a>
         </div>
       </div>
 
-      <div className="hero-right flex justify-center items-center z-[1] fade-up [animation-delay:0.2s] mt-12 md:mt-0">
-        <div className="profile-frame relative w-[240px] md:w-[340px] h-[280px] md:h-[400px]">
-          <div className="profile-img-wrapper w-full h-full border border-[var(--border)] overflow-hidden relative bg-[var(--surface)]">
+      <div className="hero-right flex justify-center md:justify-end items-center z-[1] shrink-0 fade-up [animation-delay:0.25s]">
+        <div className="profile-frame relative w-[220px] md:w-[320px] h-[260px] md:h-[400px]">
+          <div className="profile-img-wrapper w-full h-full border border-[var(--border)] overflow-hidden relative bg-[var(--surface)] shadow-2xl">
             <img 
               src={profile.avatar} 
               alt={profile.name} 
-              className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-500"
+              className="w-full h-full object-cover opacity-85 transition-all duration-500"
             />
-            <div className="pc-tl profile-corner absolute top-[-1px] left-[-1px] border-t-2 border-l-2 border-[var(--accent)] w-[20px] h-[20px]"></div>
-            <div className="pc-tr profile-corner absolute top-[-1px] right-[-1px] border-t-2 border-r-2 border-[var(--accent)] w-[20px] h-[20px]"></div>
-            <div className="pc-bl profile-corner absolute bottom-[-1px] left-[-1px] border-b-2 border-l-2 border-[var(--accent)] w-[20px] h-[20px]"></div>
-            <div className="pc-br profile-corner absolute bottom-[-1px] right-[-1px] border-b-2 border-r-2 border-[var(--accent)] w-[20px] h-[20px]"></div>
+            <div className="profile-corner pc-tl absolute top-[-1px] left-[-1px] border-t-2 border-l-2 border-[var(--accent)] w-[18px] h-[18px]"></div>
+            <div className="profile-corner pc-tr absolute top-[-1px] right-[-1px] border-t-2 border-r-2 border-[var(--accent)] w-[18px] h-[18px]"></div>
+            <div className="profile-corner pc-bl absolute bottom-[-1px] left-[-1px] border-b-2 border-l-2 border-[var(--accent)] w-[18px] h-[18px]"></div>
+            <div className="profile-corner pc-br absolute bottom-[-1px] right-[-1px] border-b-2 border-r-2 border-[var(--accent)] w-[18px] h-[18px]"></div>
           </div>
-          <div className="profile-badge absolute bottom-[-1rem] right-[-1rem] bg-[var(--surface2)] border border-[var(--border)] px-[1rem] py-[0.8rem] font-[var(--mono)] text-[0.7rem] text-[var(--muted)]">
-            <strong className="block text-[1.3rem] text-[var(--accent)] font-[var(--display)] font-bold leading-[1]">1.3+</strong>
-            Years of Experience
+          <div className="profile-badge absolute bottom-[-0.8rem] right-[-0.8rem] bg-[var(--surface2)] border border-[var(--border)] px-[0.9rem] py-[0.7rem] font-[var(--mono)] text-[0.62rem] text-[var(--muted)] shadow-xl">
+            <strong className="block text-[1.2rem] text-[var(--accent)] font-[var(--display)] font-bold leading-[1]">1.3+</strong>
+            Years Experience
           </div>
         </div>
       </div>
 
       <style>{`
-        .btn-custom-primary {
+        .btn-hero-primary {
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
           background: var(--accent);
           color: #0a0a0a;
-          padding: 0.85rem 1.8rem;
+          padding: 0.62rem 1.4rem;
           font-family: var(--mono);
-          font-size: 0.8rem;
-          font-weight: 500;
+          font-size: 0.68rem;
+          font-weight: 600;
           letter-spacing: 0.08em;
           text-decoration: none;
           text-transform: uppercase;
-          transition: transform 0.2s, box-shadow 0.2s;
+          transition: all 0.2s ease;
         }
-        .btn-custom-primary:hover {
+        .btn-hero-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 30px rgba(232,255,107,0.3);
+          box-shadow: 0 8px 25px rgba(232,255,107,0.2);
         }
-        .btn-custom-outline {
+        .btn-hero-outline {
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
           border: 1px solid var(--border);
           color: var(--text);
-          padding: 0.85rem 1.8rem;
+          padding: 0.62rem 1.4rem;
           font-family: var(--mono);
-          font-size: 0.8rem;
+          font-size: 0.68rem;
           letter-spacing: 0.08em;
           text-decoration: none;
           text-transform: uppercase;
-          transition: border-color 0.2s, color 0.2s;
+          transition: all 0.2s ease;
         }
-        .btn-custom-outline:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-hero-outline:hover {
+          border-color: var(--accent);
+          color: var(--accent);
+          background: rgba(232,255,107,0.02);
+        }
       `}</style>
     </section>
   );

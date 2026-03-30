@@ -19,7 +19,7 @@ const Contact = ({ social, contact: _contact }: { social: SanitizedSocial, conta
 
   return (
     <div id="contact-wrap" className="max-w-full p-0 bg-[var(--surface)]">
-      <div className="contact-inner max-w-[1200px] mx-auto px-[1.5rem] md:px-[3rem] py-[4rem] grid grid-cols-1 md:grid-cols-2 gap-[4rem] items-start">
+      <div className="contact-inner max-w-[1200px] mx-auto px-[1.5rem] md:px-[3rem] py-[2.8rem] grid grid-cols-1 md:grid-cols-2 gap-[4rem] items-start">
         <div className="contact-left reveal">
           <h2 className="text-[clamp(1.8rem,3.5vw,3.2rem)] font-extrabold tracking-[-0.04em] leading-[0.95] mb-[1rem]">
             Let&apos;s Build<br/>Something <em className="font-[var(--serif)] italic font-normal text-[var(--accent)]">Great</em>
