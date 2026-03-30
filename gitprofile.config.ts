@@ -128,19 +128,19 @@ const CONFIG = {
     {
       name: 'OJEE (MCA) Rank 34',
       body: 'Secured All Odisha Rank 34 in OJEE (MCA).',
-      year: '',
+      year: '2023',
       link: '',
     },
     {
       name: 'AIR 147 in Coding World Cup',
       body: 'Secured AIR 147 in Coding World Cup.',
-      year: '',
+      year: '2023',
       link: '',
     },
     {
       name: 'Alumni Coordinator at OUTR',
       body: 'Lead mentorship initiatives for 200+ students.',
-      year: '',
+      year: '2023-2025',
       link: '',
     },
   ],

@@ -36,6 +36,19 @@ body {
   pointer-events: none;
 }
 
+.diamond-grid-overlay {
+  position: absolute;
+  inset: -100%;
+  background-image: 
+    linear-gradient(rgba(232,255,107,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,255,107,0.05) 1px, transparent 1px);
+  background-size: 55px 55px;
+  transform: rotate(45deg);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
 .hero-blob {
   position: absolute;
   width: 600px;
@@ -79,4 +92,22 @@ body {
 
 .animate-blink {
   animation: blink 1.5s step-end infinite;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #0a0a0a inset !important;
+  -webkit-text-fill-color: #f0ede8 !important;
+  caret-color: #f0ede8;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover, 
+textarea:-webkit-autofill:focus, 
+textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #0a0a0a inset !important;
+  -webkit-text-fill-color: #f0ede8 !important;
 }

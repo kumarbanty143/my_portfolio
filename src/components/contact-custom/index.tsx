@@ -24,9 +24,8 @@ const Contact = ({ social, contact: _contact }: { social: SanitizedSocial, conta
           <h2 className="text-[clamp(1.8rem,3.5vw,3.2rem)] font-extrabold tracking-[-0.04em] leading-[0.95] mb-[1rem]">
             Let&apos;s Build<br/>Something <em className="font-[var(--serif)] italic font-normal text-[var(--accent)]">Great</em>
           </h2>
-          <p className="text-[0.85rem] text-[#999] leading-[1.7] mb-[1.6rem]">
-            Open to full-time roles, freelance projects, and interesting collaborations. 
-            If you have a problem worth solving, I&apos;d love to hear about it.
+          <p className="text-[0.88rem] text-[#aaa] leading-[1.75] mb-[1.8rem]">
+            I&apos;m currently hunting for my next big challenge. Whether it&apos;s a <strong>full-time role</strong>, a high-impact <strong>freelance project</strong>, or just a technical deep-dive over coffee, I&apos;m all ears.
           </p>
 
           <div className="contact-info-list flex flex-col">
@@ -34,12 +33,6 @@ const Contact = ({ social, contact: _contact }: { social: SanitizedSocial, conta
               <a href={`mailto:${social.email}`} className="contact-info-item group flex items-center gap-[0.8rem] font-[var(--mono)] text-[0.72rem] text-[var(--muted)] no-underline transition-colors duration-200 py-[0.85rem] border-b border-[var(--border)] last:border-none hover:text-[var(--accent)]">
                 <div className="ci-icon w-[28px] h-[28px] border border-[var(--border)] flex items-center justify-center text-[0.75rem] shrink-0 transition-all duration-200 group-hover:border-[var(--accent)] group-hover:bg-[rgba(232,255,107,0.05)]">✉</div>
                 {social.email}
-              </a>
-            )}
-            {social.phone && (
-              <a href={`tel:${social.phone}`} className="contact-info-item group flex items-center gap-[0.8rem] font-[var(--mono)] text-[0.72rem] text-[var(--muted)] no-underline transition-colors duration-200 py-[0.85rem] border-b border-[var(--border)] last:border-none hover:text-[var(--accent)]">
-                <div className="ci-icon w-[28px] h-[28px] border border-[var(--border)] flex items-center justify-center text-[0.75rem] shrink-0 transition-all duration-200 group-hover:border-[var(--accent)] group-hover:bg-[rgba(232,255,107,0.05)]">☎</div>
-                {social.phone}
               </a>
             )}
             {social.linkedin && (
@@ -60,24 +53,24 @@ const Contact = ({ social, contact: _contact }: { social: SanitizedSocial, conta
             <div className="form-row grid grid-cols-1 md:grid-cols-2 gap-[0.75rem]">
               <div className="form-group flex flex-col gap-[0.28rem]">
                 <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">First Name</label>
-                <input type="text" name="fname" placeholder="Rahul" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" required />
+                <input type="text" name="fname" placeholder="Jon" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" required />
               </div>
               <div className="form-group flex flex-col gap-[0.28rem]">
                 <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">Last Name</label>
-                <input type="text" name="lname" placeholder="Sharma" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" />
+                <input type="text" name="lname" placeholder="Doe" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" />
               </div>
             </div>
             <div className="form-group flex flex-col gap-[0.28rem]">
               <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">Email</label>
-              <input type="email" name="email" placeholder="you@company.com" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" required />
+              <input type="email" name="email" placeholder="your@email.com" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" required />
             </div>
             <div className="form-group flex flex-col gap-[0.28rem]">
               <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">Subject</label>
-              <input type="text" name="subject" placeholder="Job opportunity / Collaboration" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" />
+              <input type="text" name="subject" placeholder="Coffee, code, or just a chat?" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" />
             </div>
             <div className="form-group flex flex-col gap-[0.28rem]">
               <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">Message</label>
-              <textarea name="message" rows={5} placeholder="Tell me about your project..." className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)] resize-none" required></textarea>
+              <textarea name="message" rows={5} placeholder="What's on your mind?" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)] resize-none" required></textarea>
             </div>
             <button type="submit" className="btn-submit mt-[0.2rem] bg-[var(--accent)] text-[#0a0a0a] border-none px-[1.8rem] py-[0.85rem] font-[var(--mono)] text-[0.76rem] font-medium tracking-[0.1em] uppercase transition-all duration-200 flex items-center justify-center gap-[0.4rem] w-full hover:translate-y-[-2px] hover:shadow-[0_8px_26px_rgba(232,255,107,0.2)]">
               Send Message &rarr;
