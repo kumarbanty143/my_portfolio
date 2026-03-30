@@ -34,7 +34,7 @@ const Hero = ({ profile, intro, loading }: { profile: Profile | null, intro?: st
         </div>
       </div>
 
-      <div className="hero-right flex justify-center md:justify-end items-center z-[1] shrink-0 fade-up [animation-delay:0.25s]">
+      <div className="hero-right hidden md:flex items-center z-[1] shrink-0 fade-up [animation-delay:0.25s]">
         <div className="profile-frame relative w-[220px] md:w-[320px] h-[260px] md:h-[400px]">
           <div className="profile-img-wrapper w-full h-full border border-[var(--border)] overflow-hidden relative bg-[var(--surface)] shadow-2xl">
             <img 

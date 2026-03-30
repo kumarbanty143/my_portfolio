@@ -112,7 +112,7 @@ const GitProfile = ({ config }: { config: Config }) => {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen text-[#f0ede8] font-['Syne',sans-serif]">
-      <Nav />
+      <Nav profile={profile} />
       <main>
         <Hero 
           profile={profile} 
