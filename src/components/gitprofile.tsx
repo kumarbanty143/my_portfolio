@@ -24,7 +24,6 @@ import Projects from './projects-custom';
 import About from './about-custom';
 import Contact from './contact-custom';
 import Footer from './footer-custom';
-import CustomCursor from './custom-cursor';
 
 const GitProfile = ({ config }: { config: Config }) => {
   const [sanitizedConfig] = useState<SanitizedConfig | Record<string, never>>(
@@ -113,7 +112,6 @@ const GitProfile = ({ config }: { config: Config }) => {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen text-[#f0ede8] font-['Syne',sans-serif]">
-      <CustomCursor />
       <Nav />
       <main>
         <Hero 
