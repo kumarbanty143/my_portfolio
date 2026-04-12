@@ -1,24 +1,9 @@
-import React from 'react';
 import { hotjar } from 'react-hotjar';
-
-
 import { DEFAULT_THEMES } from '../constants/default-themes';
-import colors from '../data/colors.json';
 import {
   SanitizedConfig,
   SanitizedHotjar,
-  SanitizedThemeConfig,
 } from '../interfaces/sanitized-config';
-
-
-
-type EventParams = {
-  [key: string]: string;
-};
-
-type Colors = {
-  [key: string]: { color: string | null; url: string };
-};
 
 export const getSanitizedConfig = (
   config: Config,
@@ -147,50 +132,6 @@ export const getSanitizedConfig = (
   }
 };
 
-export const getInitialTheme = (themeConfig: SanitizedThemeConfig): string => {
-  if (themeConfig.disableSwitch) {
-    return themeConfig.defaultTheme;
-  }
-
-
-
-  if (themeConfig.respectPrefersColorScheme && !themeConfig.disableSwitch) {
-    return typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : themeConfig.defaultTheme;
-  }
-
-  return themeConfig.defaultTheme;
-};
-
-export const skeleton = ({
-  widthCls = null,
-  heightCls = null,
-  style = {} as React.CSSProperties,
-  shape = 'rounded-full',
-  className = null,
-}: {
-  widthCls?: string | null;
-  heightCls?: string | null;
-  style?: React.CSSProperties;
-  shape?: string;
-  className?: string | null;
-}): React.JSX.Element => {
-  const classNames = ['bg-base-300', 'animate-pulse', shape];
-  if (className) {
-    classNames.push(className);
-  }
-  if (widthCls) {
-    classNames.push(widthCls);
-  }
-  if (heightCls) {
-    classNames.push(heightCls);
-  }
-
-  return <div className={classNames.join(' ')} style={style} />;
-};
-
 export const setupHotjar = (hotjarConfig: SanitizedHotjar): void => {
   if (hotjarConfig?.id) {
     const snippetVersion = hotjarConfig?.snippetVersion || 6;
@@ -198,22 +139,3 @@ export const setupHotjar = (hotjarConfig: SanitizedHotjar): void => {
   }
 };
 
-export const ga = {
-  event(action: string, params: EventParams): void {
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any)?.gtag('event', action, params);
-    } catch (error) {
-      console.error(error);
-    }
-  },
-};
-
-export const getLanguageColor = (language: string): string => {
-  const languageColors: Colors = colors;
-  if (typeof languageColors[language] !== 'undefined') {
-    return languageColors[language].color || 'gray';
-  } else {
-    return 'gray';
-  }
-};

@@ -14,7 +14,6 @@ import { SanitizedConfig } from '../interfaces/sanitized-config';
 import ErrorPage from './error-page';
 import { Profile } from '../interfaces/profile';
 
-// New Custom Components
 import Nav from './nav-custom';
 import Hero from './hero-custom';
 import Ticker from './ticker-custom';
