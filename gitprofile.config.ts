@@ -1,36 +1,27 @@
-// gitprofile.config.ts
-
 const CONFIG = {
   github: {
-    username: 'kumarbanty143', // Your GitHub org/user name. (This is the only required config)
+    username: 'kumarbanty143',
   },
-  /**
-   * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/arifszn/arifszn.github.io, set base to '/'.
-   * If you are deploying to https://<USERNAME>.github.io/<REPO_NAME>/,
-   * for example your repository is at https://github.com/arifszn/portfolio, then set base to '/portfolio/'.
-   */
   base: '/',
   projects: {
     github: {
-      display: false, // Display GitHub projects?
+      display: false,
       header: 'Github Projects',
-      mode: 'automatic', // Mode can be: 'automatic' or 'manual'
+      mode: 'automatic',
       automatic: {
-        sortBy: 'stars', // Sort projects by 'stars' or 'updated'
-        limit: 8, // How many projects to display.
+        sortBy: 'stars',
+        limit: 8,
         exclude: {
-          forks: false, // Forked projects will not be displayed if set to true.
-          projects: [], // These projects will not be displayed. example: ['arifszn/my-project1', 'arifszn/my-project2']
+          forks: false,
+          projects: [],
         },
       },
       manual: {
-        // Properties for manually specifying projects
-        projects: [], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
+        projects: [],
       },
     },
     external: {
       header: 'My Projects',
-      // To hide the `External Projects` section, keep it empty.
       projects: [],
     },
   },
@@ -50,13 +41,13 @@ const CONFIG = {
     instagram: 'the_banty_cs',
     reddit: '',
     threads: '',
-    youtube: '', // example: 'pewdiepie'
+    youtube: '',
     udemy: '',
     dribbble: '',
     behance: '',
     medium: '',
     dev: '',
-    stackoverflow: '', // example: '1/jeff-atwood'
+    stackoverflow: '',
     discord: '',
     telegram: '',
     website: '',
@@ -64,7 +55,7 @@ const CONFIG = {
     email: 'himanshukumarpatra.dev@gmail.com',
   },
   resume: {
-    fileUrl: '', // Empty fileUrl will hide the `Download Resume` button.
+    fileUrl: '',
   },
   skills: [
     'React.js',
@@ -159,24 +150,22 @@ const CONFIG = {
     },
   ],
   publications: [],
-  // Display articles from your medium or dev account. (Optional)
   contact: {
     email: 'himanshukumarpatra.dev@gmail.com',
     emailJS: {
-      serviceId: '', // To find this, visit https://www.emailjs.com/
-      templateId: '', // To find this, visit https://www.emailjs.com/
-      publicKey: '', // To find this, visit https://www.emailjs.com/
+      serviceId: '',
+      templateId: '',
+      publicKey: '',
     },
   },
   blog: {
-    source: '', // medium | dev
-    username: '', // to hide blog section, keep it empty
-    limit: 2, // How many articles to display. Max is 10.
+    source: '',
+    username: '',
+    limit: 2,
   },
   googleAnalytics: {
-    id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
+    id: '',
   },
-  // Track visitor interaction and behavior. https://www.hotjar.com
   hotjar: { id: '', snippetVersion: 6 },
   themeConfig: {
     defaultTheme: 'dracula',
@@ -185,10 +174,7 @@ const CONFIG = {
     displayAvatarRing: true,
     themes: ['dracula'],
   },
-
-  // Optional Footer. Supports plain text or HTML.
   footer: `Made with ❤️ by <a class="text-primary" href="https://github.com/kumarbanty143" target="_blank" rel="noreferrer">Himanshu</a>`,
-
   enablePWA: true,
 };
 

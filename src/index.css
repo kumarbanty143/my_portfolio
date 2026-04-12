@@ -25,7 +25,6 @@ body {
 }
 
 
-/* Hero Styles */
 .hero-grid-bg {
   position: absolute;
   inset: 0;
@@ -75,7 +74,6 @@ body {
   animation: ticker 30s linear infinite;
 }
 
-/* Utility Animations */
 .fade-up {
   animation: fadeUp 0.6s ease both;
 }

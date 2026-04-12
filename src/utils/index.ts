@@ -1,5 +1,5 @@
 import { hotjar } from 'react-hotjar';
-import { DEFAULT_THEMES } from '../constants/default-themes';
+import { DEFAULT_THEMES } from '../constants/themes';
 import {
   SanitizedConfig,
   SanitizedHotjar,

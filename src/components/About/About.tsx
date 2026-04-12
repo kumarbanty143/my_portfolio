@@ -14,7 +14,6 @@ const About = ({ educations, certifications }: { educations: SanitizedEducation[
         </div>
         
         <div className="edu-achv-grid grid grid-cols-1 md:grid-cols-2 gap-[2.5rem]">
-          {/* LEFT: Education timeline */}
           <div className="reveal">
             <div className="edu-col-title font-[var(--mono)] text-[0.62rem] text-[var(--accent)] tracking-[0.1em] uppercase mb-[1rem]">Academic Background</div>
             <div className="edu-timeline flex flex-col gap-0">
@@ -37,7 +36,6 @@ const About = ({ educations, certifications }: { educations: SanitizedEducation[
             </div>
           </div>
 
-          {/* RIGHT: Achievements column */}
           <div className="reveal flex flex-col gap-[1rem]">
             <div className="achv-col-title font-[var(--mono)] text-[0.62rem] text-[var(--accent)] tracking-[0.1em] uppercase">Achievements &amp; Recognition</div>
             <div className="achv-stack flex flex-col gap-[0.6rem]">

@@ -11,18 +11,18 @@ import {
 import '../index.css';
 import { getSanitizedConfig, setupHotjar } from '../utils';
 import { SanitizedConfig } from '../interfaces/sanitized-config';
-import ErrorPage from './error-page';
+import ErrorPage from './ErrorPage/ErrorPage';
 import { Profile } from '../interfaces/profile';
 
-import Nav from './nav-custom';
-import Hero from './hero-custom';
-import Ticker from './ticker-custom';
-import Skills from './skills-custom';
-import Experience from './experience-custom';
-import Projects from './projects-custom';
-import About from './about-custom';
-import Contact from './contact-custom';
-import Footer from './footer-custom';
+import Navbar from './Navbar/Navbar';
+import Hero from './Hero/Hero';
+import Ticker from './Ticker/Ticker';
+import Skills from './Skills/Skills';
+import Experience from './Experience/Experience';
+import Projects from './Projects/Projects';
+import About from './About/About';
+import Contact from './Contact/Contact';
+import Footer from './Footer/Footer';
 
 const GitProfile = ({ config }: { config: Config }) => {
   const [sanitizedConfig] = useState<SanitizedConfig | Record<string, never>>(
@@ -111,7 +111,7 @@ const GitProfile = ({ config }: { config: Config }) => {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen text-[#f0ede8] font-['Syne',sans-serif]">
-      <Nav profile={profile} />
+      <Navbar profile={profile} />
       <main>
         <Hero 
           profile={profile} 

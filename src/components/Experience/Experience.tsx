@@ -18,7 +18,6 @@ const Experience = ({ experiences }: { experiences: SanitizedExperience[] }) => 
               key={i} 
               className="exp-item reveal flex flex-col group transition-all"
             >
-              {/* Header: Role/Company on Left, Date/Badge on Right */}
               <div className="exp-header flex flex-col md:flex-row justify-between items-start md:items-center gap-[1rem] mb-[1.2rem] border-b border-[var(--border)] pb-[1.2rem] relative bg-[rgba(10,10,10,0.4)] backdrop-blur-[2px]">
                 <div className="exp-role-info">
                   <div className="exp-role text-[1.25rem] font-bold tracking-[-0.02em] mb-[0.2rem] text-[var(--text)]">{exp.position}</div>
@@ -33,7 +32,6 @@ const Experience = ({ experiences }: { experiences: SanitizedExperience[] }) => 
                 <div className="absolute bottom-[-1px] left-0 w-0 h-[1px] bg-[var(--accent)] transition-all duration-400 group-hover:w-full"></div>
               </div>
 
-              {/* Content: Full width bullets */}
               <div className="exp-content">
                 <ul className="exp-bullets list-none flex flex-col gap-[0.55rem]">
                   {exp.description?.split('\n').map((bullet, j) => (

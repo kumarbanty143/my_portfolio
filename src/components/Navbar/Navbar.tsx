@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Profile } from '../../interfaces/profile';
 
-const Nav = ({ profile }: { profile: Profile | null }) => {
+const Navbar = ({ profile }: { profile: Profile | null }) => {
   const [showGallery, setShowGallery] = useState(false);
 
   return (
@@ -13,7 +13,6 @@ const Nav = ({ profile }: { profile: Profile | null }) => {
           <span className="bracket text-[var(--accent)]">/&gt;</span>
         </a>
 
-        {/* Desktop Links */}
         <ul className="hidden md:flex gap-[2rem] list-none">
           <li><a href="#skills" className="nav-link-custom">Skills</a></li>
           <li><a href="#experience" className="nav-link-custom">Experience</a></li>
@@ -22,7 +21,6 @@ const Nav = ({ profile }: { profile: Profile | null }) => {
           <li><a href="#contact-wrap" className="nav-link-custom">Contact</a></li>
         </ul>
 
-        {/* Mobile Gallery Trigger */}
         <div className="md:hidden">
           <button 
             onClick={() => setShowGallery(true)}
@@ -47,7 +45,6 @@ const Nav = ({ profile }: { profile: Profile | null }) => {
         `}</style>
       </nav>
 
-      {/* Gallery Overlay */}
       {showGallery && (
         <div 
           className="fixed inset-0 z-[999] bg-[rgba(0,0,0,0.92)] backdrop-blur-[10px] flex flex-col items-center justify-center p-[2rem] animate-fade-in"
@@ -94,4 +91,4 @@ const Nav = ({ profile }: { profile: Profile | null }) => {
   );
 };
 
-export default Nav;
+export default Navbar;
