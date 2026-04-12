@@ -24,7 +24,7 @@ const Contact = ({ social, contact: _contact }: { social: SanitizedSocial, conta
           <h2 className="text-[clamp(1.8rem,3.5vw,3.2rem)] font-extrabold tracking-[-0.04em] leading-[0.95] mb-[1rem]">
             Let&apos;s Build<br/>Something <em className="font-[var(--serif)] italic font-normal text-[var(--accent)]">Great</em>
           </h2>
-          <p className="text-[0.88rem] text-[#aaa] leading-[1.75] mb-[1.8rem]">
+          <p className="text-[0.88rem] text-[var(--muted)] leading-[1.75] mb-[1.8rem]">
             I&apos;m currently hunting for my next big challenge. Whether it&apos;s a <strong>full-time role</strong>, a high-impact <strong>freelance project</strong>, or just a technical deep-dive over coffee, I&apos;m all ears.
           </p>
 

@@ -23,7 +23,7 @@ const Hero = ({ profile, intro, loading }: { profile: Profile | null, intro?: st
         </p>
 
         <div className="hero-desc-wrap max-w-full md:max-w-[850px] fade-up [animation-delay:0.2s]">
-          <p className="text-[0.85rem] md:text-[0.95rem] leading-[1.7] text-[#aaa] mb-[1.6rem] whitespace-pre-line">
+          <p className="text-[0.85rem] md:text-[0.95rem] leading-[1.7] text-[var(--muted)] mb-[1.6rem] whitespace-pre-line">
             {intro || profile.bio}
           </p>
         </div>

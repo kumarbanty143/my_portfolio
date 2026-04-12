@@ -71,7 +71,7 @@ const Nav = ({ profile }: { profile: Profile | null }) => {
              />
              <div className="absolute bottom-0 left-0 right-0 p-[1.5rem] bg-gradient-to-t from-[rgba(0,0,0,0.8)] to-transparent">
                 <div className="text-[1.2rem] font-bold text-[var(--accent)] font-[var(--serif)] italic">Himanshu</div>
-                <div className="text-[var(--mono)] text-[0.65rem] text-[#888] tracking-[0.1em] uppercase">Full Stack Developer</div>
+                <div className="text-[var(--mono)] text-[0.65rem] text-[var(--muted)] tracking-[0.1em] uppercase">Full Stack Developer</div>
              </div>
           </div>
           
