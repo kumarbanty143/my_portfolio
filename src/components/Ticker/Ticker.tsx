@@ -1,5 +1,4 @@
 const Ticker = ({ skills }: { skills: string[] }) => {
-  // Duplicate skills to make a continuous loop
   const displaySkills = [...skills, ...skills];
 
   return (

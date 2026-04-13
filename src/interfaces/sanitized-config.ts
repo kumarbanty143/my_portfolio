@@ -45,24 +45,9 @@ export interface SanitizedSEO {
 export interface SanitizedSocial {
   linkedin?: string;
   x?: string;
-  mastodon?: string;
-  researchGate?: string;
-  facebook?: string;
   instagram?: string;
-  reddit?: string;
-  threads?: string;
-  youtube?: string;
-  udemy?: string;
-  dribbble?: string;
-  behance?: string;
-  medium?: string;
-  dev?: string;
-  stackoverflow?: string;
-  website?: string;
-  telegram?: string;
   phone?: string;
   email?: string;
-  discord?: string;
   leetcode?: string;
   codechef?: string;
 }

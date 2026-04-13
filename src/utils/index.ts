@@ -45,24 +45,9 @@ export const getSanitizedConfig = (
       social: {
         linkedin: config?.social?.linkedin,
         x: config?.social?.x,
-        mastodon: config?.social?.mastodon,
-        facebook: config?.social?.facebook,
         instagram: config?.social?.instagram,
-        reddit: config?.social?.reddit,
-        threads: config?.social?.threads,
-        youtube: config?.social?.youtube,
-        udemy: config?.social?.udemy,
-        dribbble: config?.social?.dribbble,
-        behance: config?.social?.behance,
-        medium: config?.social?.medium,
-        dev: config?.social?.dev,
-        stackoverflow: config?.social?.stackoverflow,
-        website: config?.social?.website,
         phone: config?.social?.phone,
         email: config?.social?.email,
-        telegram: config?.social?.telegram,
-        researchGate: config?.social?.researchGate,
-        discord: config?.social?.discord,
         leetcode: config?.social?.leetcode,
         codechef: config?.social?.codechef,
       },
@@ -139,4 +124,3 @@ export const setupHotjar = (hotjarConfig: SanitizedHotjar): void => {
     hotjar.initialize({ id: parseInt(hotjarConfig.id), sv: snippetVersion });
   }
 };
-

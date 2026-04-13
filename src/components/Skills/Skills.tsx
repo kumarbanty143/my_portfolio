@@ -18,7 +18,7 @@ const Skills = ({ skills: _skills }: { skills: string[] }) => {
     },
     {
       title: 'Languages',
-      items: ['JavaScript', 'TypeScript', 'Java', 'SQL', 'C++']
+      items: ['JavaScript', 'TypeScript', 'Java', 'SQL']
     },
     {
       title: 'Core Concepts',
@@ -37,8 +37,8 @@ const Skills = ({ skills: _skills }: { skills: string[] }) => {
         </div>
         <div className="skills-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[var(--border)] border border-[var(--border)] leading-none">
           {categories.map((cat, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className="skill-card reveal bg-[var(--surface)] p-[1.5rem] transition-colors duration-200 relative overflow-hidden group hover:bg-[var(--surface2)]"
             >
               <div className="skill-cat font-[var(--mono)] text-[0.62rem] text-[var(--accent)] tracking-[0.1em] uppercase mb-[0.8rem]">{cat.title}</div>
