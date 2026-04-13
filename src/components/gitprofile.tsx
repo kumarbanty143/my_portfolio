@@ -25,9 +25,9 @@ const GitProfile = ({ config }: { config: Config }) => {
   );
   const [error, setError] = useState<CustomError | null>(null);
   const [profile] = useState<Profile>({
-    avatar: 'https://avatars.githubusercontent.com/u/89617304?v=4',
+    avatar: '',
     name: 'Himanshu Kumar Patra',
-    bio: 'Full Stack Developer with 1.3+ years of professional experience building scalable web applications.',
+    bio: 'Full Stack Developer with 1.4+ years of professional experience building scalable web applications.',
     location: 'Bengaluru, India',
     company: 'Vedak',
   });
@@ -55,22 +55,22 @@ const GitProfile = ({ config }: { config: Config }) => {
     <div className="bg-[#0a0a0a] min-h-screen text-[#f0ede8] font-['Syne',sans-serif]">
       <Navbar profile={profile} />
       <main>
-        <Hero 
-          profile={profile} 
-          intro={sanitizedConfig.intro} 
-          loading={false} 
+        <Hero
+          profile={profile}
+          intro={sanitizedConfig.intro}
+          loading={false}
         />
         <Ticker skills={sanitizedConfig.skills} />
         <Skills skills={sanitizedConfig.skills} />
         <Experience experiences={sanitizedConfig.experiences} />
         <Projects projects={sanitizedConfig.projects.external.projects} />
-        <About 
-          educations={sanitizedConfig.educations} 
-          certifications={sanitizedConfig.certifications} 
+        <About
+          educations={sanitizedConfig.educations}
+          certifications={sanitizedConfig.certifications}
         />
-        <Contact 
-          social={sanitizedConfig.social} 
-          contact={sanitizedConfig.contact} 
+        <Contact
+          social={sanitizedConfig.social}
+          contact={sanitizedConfig.contact}
         />
       </main>
       <Footer social={sanitizedConfig.social} />

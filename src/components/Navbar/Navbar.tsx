@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { Profile } from '../../interfaces/profile';
 
+const imageModules = import.meta.glob('/public/images/*.{png,jpg,jpeg,gif,webp,svg}', { eager: true });
+const HERO_IMAGES = Object.keys(imageModules).map((path) => path.replace('/public', '')).sort();
+
 const Navbar = ({ profile }: { profile: Profile | null }) => {
   const [showGallery, setShowGallery] = useState(false);
+  const images = HERO_IMAGES;
 
   return (
     <>
@@ -61,19 +65,27 @@ const Navbar = ({ profile }: { profile: Profile | null }) => {
             className="relative w-full max-w-[400px] aspect-[3/4] border border-[rgba(255,255,255,0.05)] shadow-[0_30px_100px_rgba(0,0,0,0.8)]"
             onClick={(e) => e.stopPropagation()}
           >
-             <img 
-               src={profile?.avatar} 
-               alt="Himanshu" 
-               className="w-full h-full object-cover grayscale-[20%] sepia-[10%]"
-             />
+             {images.length > 0 ? (
+               <img 
+                 src={images[0]} 
+                 alt="Profile" 
+                 className="w-full h-full object-cover grayscale-[20%] sepia-[10%]"
+               />
+             ) : (
+               <div className="w-full h-full bg-[var(--surface)] flex items-center justify-center text-[var(--muted)] font-[var(--mono)] text-[0.7rem]">
+                 No image found in public/images
+               </div>
+             )}
              <div className="absolute bottom-0 left-0 right-0 p-[1.5rem] bg-gradient-to-t from-[rgba(0,0,0,0.8)] to-transparent">
-                <div className="text-[1.2rem] font-bold text-[var(--accent)] font-[var(--serif)] italic">Himanshu</div>
+                <div className="text-[1.2rem] font-bold text-[var(--accent)] font-[var(--serif)] italic">
+                  {profile?.name.split(' ')[0]}
+                </div>
                 <div className="text-[var(--mono)] text-[0.65rem] text-[var(--muted)] tracking-[0.1em] uppercase">Full Stack Developer</div>
              </div>
           </div>
           
           <p className="mt-[2rem] font-[var(--mono)] text-[0.6rem] text-[var(--muted)] tracking-[0.05em] uppercase text-center opacity-40">
-            Swipe left/right to view more (Placeholder)
+            {images.length > 1 ? 'Gallery sequence enabled' : ''}
           </p>
         </div>
       )}

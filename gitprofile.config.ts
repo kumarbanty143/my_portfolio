@@ -27,7 +27,7 @@ const CONFIG = {
   },
   seo: {
     title: 'Portfolio of Himanshu Kumar Patra',
-    description: 'Full Stack Developer with 1.3+ years of experience',
+    description: 'Full Stack Developer with 1.4+ years of experience',
     imageURL: '',
   },
   social: {
@@ -90,7 +90,7 @@ const CONFIG = {
     'Database Indexing',
     'Caching',
   ],
-  intro: 'Full Stack Developer with 1.3+ years of professional experience building scalable web applications using Node.js, React, and SQL. Experienced in microservices architecture, REST API development, and improving database performance.\n\nBuilt responsive frontend interfaces and improved performance by reducing bundle size. Currently learning Java and Spring Boot, along with Docker and MongoDB.',
+  intro: 'Full Stack Developer with 1.4+ years of professional experience building scalable web applications using Node.js, React, and SQL. Experienced in microservices architecture, REST API development, and improving database performance.\n\nBuilt responsive frontend interfaces and improved performance by reducing bundle size. Currently learning Java and Spring Boot, along with Docker and MongoDB.',
   experiences: [
     {
       company: 'Vedak: Expert Network',

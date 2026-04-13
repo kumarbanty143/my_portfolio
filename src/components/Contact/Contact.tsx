@@ -71,7 +71,7 @@ const Contact = ({ social, contact }: { social: SanitizedSocial, contact: Saniti
   };
 
   return (
-    <div id="contact-wrap" className="max-w-full p-0 bg-[var(--surface)]">
+    <div id="contact" className="max-w-full p-0 bg-[var(--surface)]">
       <div className="contact-inner max-w-[1200px] mx-auto px-[1.5rem] md:px-[3rem] py-[2.8rem] grid grid-cols-1 md:grid-cols-2 gap-[4rem] items-start">
         <div className="contact-left reveal">
           <h2 className="text-[clamp(1.8rem,3.5vw,3.2rem)] font-extrabold tracking-[-0.04em] leading-[0.95] mb-[1rem]">
@@ -83,13 +83,13 @@ const Contact = ({ social, contact }: { social: SanitizedSocial, contact: Saniti
 
           <div className="contact-info-list flex flex-col">
             {social.email && (
-              <a href={`mailto:${social.email}`} className="contact-info-item group flex items-center gap-[0.8rem] font-[var(--mono)] text-[0.72rem] text-[var(--muted)] no-underline transition-colors duration-200 py-[0.85rem] border-b border-[var(--border)] last:border-none hover:text-[var(--accent)]">
+              <a href={`mailto:${social.email}`} className="contact-info-item group flex items-center gap-[0.8rem] font-[var(--mono)] text-[0.72rem] text-[var(--muted)] no-underline transition-colors duration-200 py-[0.85rem] border-b border-[var(--border)] last:border-none hover:text-[var(--accent)] hover:cursor-pointer">
                 <div className="ci-icon w-[28px] h-[28px] border border-[var(--border)] flex items-center justify-center text-[0.75rem] shrink-0 transition-all duration-200 group-hover:border-[var(--accent)] group-hover:bg-[rgba(232,255,107,0.05)]">✉</div>
                 {social.email}
               </a>
             )}
             {social.linkedin && (
-              <a href={`https://linkedin.com/in/${social.linkedin}`} target="_blank" rel="noreferrer" className="contact-info-item group flex items-center gap-[0.8rem] font-[var(--mono)] text-[0.72rem] text-[var(--muted)] no-underline transition-colors duration-200 py-[0.85rem] border-b border-[var(--border)] last:border-none hover:text-[var(--accent)]">
+              <a href={`https://linkedin.com/in/${social.linkedin}`} target="_blank" rel="noreferrer" className="contact-info-item group flex items-center gap-[0.8rem] font-[var(--mono)] text-[0.72rem] text-[var(--muted)] no-underline transition-colors duration-200 py-[0.85rem] border-b border-[var(--border)] last:border-none hover:text-[var(--accent)] hover:cursor-pointer">
                 <div className="ci-icon w-[28px] h-[28px] border border-[var(--border)] flex items-center justify-center text-[0.75rem] shrink-0 transition-all duration-200 group-hover:border-[var(--accent)] group-hover:bg-[rgba(232,255,107,0.05)]">in</div>
                 LinkedIn Profile
               </a>
@@ -126,7 +126,7 @@ const Contact = ({ social, contact }: { social: SanitizedSocial, contact: Saniti
             <button 
               type="submit" 
               disabled={loading}
-              className={`btn-submit mt-[0.2rem] bg-[var(--accent)] text-[#0a0a0a] border-none px-[1.8rem] py-[0.85rem] font-[var(--mono)] text-[0.76rem] font-medium tracking-[0.1em] uppercase transition-all duration-200 flex items-center justify-center gap-[0.4rem] w-full ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:translate-y-[-2px] hover:shadow-[0_8px_26px_rgba(232,255,107,0.2)]'}`}
+              className={`btn-submit mt-[0.2rem] bg-[var(--accent)] text-[#0a0a0a] border-none px-[1.8rem] py-[0.85rem] font-[var(--mono)] text-[0.76rem] font-medium tracking-[0.1em] uppercase transition-all duration-200 flex items-center justify-center gap-[0.4rem] w-full cursor-pointer hover:cursor-pointer ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:translate-y-[-2px] hover:shadow-[0_8px_26px_rgba(232,255,107,0.2)]'}`}
             >
               {loading ? 'Sending...' : 'Send Message →'}
             </button>
