@@ -76,6 +76,7 @@ export interface SanitizedContact {
   emailJS?: {
     serviceId: string;
     templateId: string;
+    autoReplyTemplateId?: string;
     publicKey: string;
   };
 }

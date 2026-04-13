@@ -1,20 +1,73 @@
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { SanitizedSocial, SanitizedContact } from '../../interfaces/sanitized-config';
 
-const Contact = ({ social, contact: _contact }: { social: SanitizedSocial, contact: SanitizedContact }) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    
-    const fname = formData.get('fname');
-    const lname = formData.get('lname');
-    const email = formData.get('email');
-    const subject = formData.get('subject') || 'Portfolio Contact';
-    const message = formData.get('message');
+const Contact = ({ social, contact }: { social: SanitizedSocial, contact: SanitizedContact }) => {
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-    const body = `Hi Himanshu,\n\nName: ${fname} ${lname}\nEmail: ${email}\n\n${message}`;
-    const mailtoLink = `mailto:himanshukumarpatra.dev@gmail.com?subject=${encodeURIComponent(subject as string)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const currentForm = e.currentTarget;
+
+    const formData = new FormData(currentForm);
+    const userName = formData.get('user_name') as string;
+    const userEmail = formData.get('user_email') as string;
+
+    const templateParams = {
+      user_name: userName,
+      name: userName,
+      user_email: userEmail,
+      email: userEmail,
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    };
+    
+    if (contact.emailJS) {
+      setLoading(true);
+      setStatus('idle');
+
+      try {
+        await emailjs.send(
+          contact.emailJS.serviceId,
+          contact.emailJS.templateId,
+          templateParams,
+          contact.emailJS.publicKey
+        );
+
+        if (contact.emailJS.autoReplyTemplateId) {
+          try {
+            await emailjs.send(
+              contact.emailJS.serviceId,
+              contact.emailJS.autoReplyTemplateId,
+              templateParams,
+              contact.emailJS.publicKey
+            );
+          } catch (autoReplyError) {
+            console.warn('Auto-reply failed:', autoReplyError);
+          }
+        }
+
+        setStatus('success');
+        currentForm.reset();
+      } catch (error) {
+        console.error('EmailJS Error:', error);
+        setStatus('error');
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      const name = formData.get('user_name');
+      const email = formData.get('user_email');
+      const subject = formData.get('subject') || 'New Portfolio Message';
+      const message = formData.get('message');
+
+      const body = `Hi Himanshu,\n\nName: ${name}\nEmail: ${email}\n\nMessage: ${message}`;
+      const mailtoLink = `mailto:${social.email}?subject=${encodeURIComponent(subject as string)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    }
   };
 
   return (
@@ -50,31 +103,35 @@ const Contact = ({ social, contact: _contact }: { social: SanitizedSocial, conta
 
         <div className="reveal">
           <form className="contact-form flex flex-col gap-[0.75rem]" id="contactForm" onSubmit={handleSubmit}>
-            <div className="form-row grid grid-cols-1 md:grid-cols-2 gap-[0.75rem]">
-              <div className="form-group flex flex-col gap-[0.28rem]">
-                <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">First Name</label>
-                <input type="text" name="fname" placeholder="Jon" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" required />
-              </div>
-              <div className="form-group flex flex-col gap-[0.28rem]">
-                <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">Last Name</label>
-                <input type="text" name="lname" placeholder="Doe" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" />
-              </div>
+            <div className="form-group flex flex-col gap-[0.28rem]">
+              <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">Full Name</label>
+              <input type="text" name="user_name" placeholder="Jon Doe" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" required />
             </div>
+            
             <div className="form-group flex flex-col gap-[0.28rem]">
               <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">Email</label>
-              <input type="email" name="email" placeholder="your@email.com" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" required />
+              <input type="email" name="user_email" placeholder="your@email.com" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" required />
             </div>
+
             <div className="form-group flex flex-col gap-[0.28rem]">
               <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">Subject</label>
               <input type="text" name="subject" placeholder="Coffee, code, or just a chat?" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)]" />
             </div>
+
             <div className="form-group flex flex-col gap-[0.28rem]">
               <label className="font-[var(--mono)] text-[0.62rem] text-[var(--muted)] tracking-[0.1em] uppercase">Message</label>
               <textarea name="message" rows={5} placeholder="What's on your mind?" className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] font-[var(--mono)] text-[0.78rem] px-[0.85rem] py-[0.72rem] outline-none transition-all duration-200 focus:border-[var(--accent)] resize-none" required></textarea>
             </div>
-            <button type="submit" className="btn-submit mt-[0.2rem] bg-[var(--accent)] text-[#0a0a0a] border-none px-[1.8rem] py-[0.85rem] font-[var(--mono)] text-[0.76rem] font-medium tracking-[0.1em] uppercase transition-all duration-200 flex items-center justify-center gap-[0.4rem] w-full hover:translate-y-[-2px] hover:shadow-[0_8px_26px_rgba(232,255,107,0.2)]">
-              Send Message &rarr;
+
+            <button 
+              type="submit" 
+              disabled={loading}
+              className={`btn-submit mt-[0.2rem] bg-[var(--accent)] text-[#0a0a0a] border-none px-[1.8rem] py-[0.85rem] font-[var(--mono)] text-[0.76rem] font-medium tracking-[0.1em] uppercase transition-all duration-200 flex items-center justify-center gap-[0.4rem] w-full ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:translate-y-[-2px] hover:shadow-[0_8px_26px_rgba(232,255,107,0.2)]'}`}
+            >
+              {loading ? 'Sending...' : 'Send Message →'}
             </button>
+            {status === 'success' && <p className="text-green-500 font-[var(--mono)] text-[0.7rem] text-center mt-2">Message sent successfully!</p>}
+            {status === 'error' && <p className="text-red-500 font-[var(--mono)] text-[0.7rem] text-center mt-2">Failed to send message. Please check console (F12) for details.</p>}
           </form>
         </div>
       </div>

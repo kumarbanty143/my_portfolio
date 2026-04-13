@@ -76,6 +76,7 @@ export const getSanitizedConfig = (
             ? {
                 serviceId: config.contact.emailJS.serviceId,
                 templateId: config.contact.emailJS.templateId,
+                autoReplyTemplateId: config.contact.emailJS.autoReplyTemplateId,
                 publicKey: config.contact.emailJS.publicKey,
               }
             : undefined,

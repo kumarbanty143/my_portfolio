@@ -153,9 +153,10 @@ const CONFIG = {
   contact: {
     email: 'himanshukumarpatra.dev@gmail.com',
     emailJS: {
-      serviceId: '',
-      templateId: '',
-      publicKey: '',
+      serviceId: 'service_wa3yddm',
+      templateId: 'template_b4dgh08',
+      autoReplyTemplateId: 'template_pn6o777',
+      publicKey: 'E5i31YeG_KdCRwco5',
     },
   },
   blog: {

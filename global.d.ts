@@ -215,6 +215,7 @@ interface Contact {
   emailJS?: {
     serviceId: string;
     templateId: string;
+    autoReplyTemplateId?: string;
     publicKey: string;
   };
 }
