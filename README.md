@@ -4,7 +4,7 @@ The source for [himanshukumarpatra.info](https://himanshukumarpatra.info/), a fo
 
 ## What the site presents
 
-- Selected personal work: Nexus Cloud Commerce, Splitwise MVP, and this portfolio.
+- Selected personal work: Nexus Cloud Commerce, Splitwise MVP, MediCore, and this portfolio.
 - Production experience with Node.js, TypeScript, React, MySQL, Redis, REST APIs, and AWS.
 - Java, Spring Boot, Spring Data JPA, Kafka, and Docker as technologies I am actively developing through personal projects.
 - Experience at Vedak and volunteer work with Zigbee Student Developers’ Club.

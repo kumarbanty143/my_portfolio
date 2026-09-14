@@ -13,7 +13,7 @@ const links = {
 
 type Project = {
   number: string; title: string; stack: string; description: string;
-  repository: string; status: string; highlights: string[];
+  repository: string; live?: string; status: string; highlights: string[];
   visual: { intro: string; groups: { label: string; items: string[] }[]; journey: string[]; footer: string };
 };
 
@@ -63,7 +63,30 @@ const projects: Project[] = [
     },
   },
   {
-    number: '03', title: 'Personal Portfolio', stack: 'React / TypeScript / Vite',
+    number: '03', title: 'MediCore', stack: 'Next.js / TypeScript / PostgreSQL / AI Voice',
+    description: 'An AI-assisted health platform for voice guidance, doctor discovery, and appointment booking.',
+    repository: 'https://github.com/kumarbanty143/medicore',
+    live: 'https://medicore-yh5w.vercel.app/',
+    status: 'Full-stack product project · Live on Vercel',
+    highlights: [
+      'Built a full-stack healthcare experience with an AI voice assistant powered by Vapi for conversational health guidance.',
+      'Implemented secure authentication and protected user and admin routes with Clerk.',
+      'Created a multi-step appointment workflow for discovering practitioners, selecting time slots, and managing bookings.',
+      'Used Next.js, TypeScript, PostgreSQL, Prisma, TanStack Query, Tailwind CSS, and Vercel across the application stack.',
+    ],
+    visual: {
+      intro: 'A guided health journey connecting AI-assisted conversations with practitioner discovery and appointment management.',
+      groups: [
+        { label: 'Patient experience', items: ['Voice assistant', 'Doctor search', 'Appointments'] },
+        { label: 'Application', items: ['Next.js', 'Clerk', 'TanStack Query'] },
+        { label: 'Platform', items: ['PostgreSQL', 'Prisma', 'Vapi', 'Vercel'] },
+      ],
+      journey: ['Sign in', 'Ask or search', 'Choose doctor', 'Book slot', 'Manage care'],
+      footer: 'AI voice · protected workflows · appointment lifecycle',
+    },
+  },
+  {
+    number: '04', title: 'Personal Portfolio', stack: 'React / TypeScript / Vite',
     description: 'A fast, responsive portfolio built around clear engineering evidence and thoughtful storytelling.',
     repository: 'https://github.com/kumarbanty143/my_portfolio',
     status: 'Personal site · Designed and built for mobile first',
@@ -165,7 +188,10 @@ function ProjectDetail({ project, onClose }: { project: Project | null; onClose:
       <div className="detail-copy">
         <span className="detail-number">Project {project.number}</span><h2 id={`project-title-${project.number}`}>{project.title}</h2><p className="detail-stack">{project.stack}</p><p className="detail-status">{project.status}</p>
         <ul>{project.highlights.map((item) => <li key={item}>{item}</li>)}</ul>
-        <a className="button button-primary" href={project.repository} target="_blank" rel="noreferrer">View on GitHub <Arrow /></a>
+        <div className="detail-actions">
+          <a className="button button-primary" href={project.repository} target="_blank" rel="noreferrer">View on GitHub <Arrow /></a>
+          {project.live ? <a className="button button-quiet" href={project.live} target="_blank" rel="noreferrer">Live site <Arrow /></a> : null}
+        </div>
       </div>
       <figure className={`project-visual project-visual-${project.number}`} aria-label={`${project.title} system map`}>
         <div className="visual-heading"><figcaption>{project.title} · system map</figcaption><p>{project.visual.intro}</p></div>
@@ -184,7 +210,7 @@ function Work() {
   const [selectedProjectNumber, setSelectedProjectNumber] = useState<string | null>(null);
   const selectedProject = projects.find((project) => project.number === selectedProjectNumber) ?? null;
   return <section className="section work" id="work">
-    <SectionHeading title="Selected work" note="Real problems. Practical solutions." count="03 projects" />
+    <SectionHeading title="Selected work" note="Real problems. Practical solutions." count="04 projects" />
     {projects.map((project) => <article className="project-row" key={project.title}>
       <span className="project-number">{project.number}</span><div className="project-title"><h3>{project.title}</h3><p>{project.stack}</p></div>
       <p className="project-description">{project.description}</p>
