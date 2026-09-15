@@ -5,8 +5,11 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
-\input{glyphtounicode}
-\pdfgentounicode=1
+\usepackage{iftex}
+\ifPDFTeX
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2pt}
